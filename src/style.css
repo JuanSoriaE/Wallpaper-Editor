@@ -1,0 +1,234 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+input, button {
+  all: unset;
+}
+
+input[type="text"] {
+  font-size: 14px;
+  padding: 2px 5px;
+  border: 1px solid #56565B;
+  border-radius: 3px;
+  color: #FFF;
+}
+
+#canvas-container {
+  background: #1C1C26;
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#cnv {
+  width: 90%;
+}
+
+#side-panel {
+  background: #17171E;
+  width: 25%;
+}
+
+.panel {
+  padding: 0px 20px 20px 20px;
+}
+
+.panel:not(:last-child) {
+  border-bottom: 1px solid #000;
+}
+
+.panel-header {
+  padding: 20px 0 20px 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.panel-header-icon {
+  color: #56565B;
+  width: 16px;
+  height: 16px;
+}
+
+.panel-header-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFF;
+  flex-grow: 1;
+}
+
+#add-element-button {
+  background: #6453E4;
+  padding: 5px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  gap: 5px;
+  color: #FFF;
+  cursor: pointer;
+}
+
+#add-element-button span, #add-element-button svg {
+  pointer-events: none;
+}
+
+#add-element-modal {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  padding: 10px;
+  width: 200px;
+  background: #262633;
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  box-shadow: 0 0 20px rgba(150, 150, 150, 0.1);
+}
+
+.add-element-modal-element {
+  padding: 5px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-radius: 5px;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.add-element-modal-element:hover {
+  background: #323241;
+}
+
+#layers-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.layer {
+  background: #1E1E29;
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  border-radius: 5px;
+}
+
+.layer-image-container {
+  background: #000;
+  width: 30px;
+  height: 30px;
+}
+
+.layer-image {
+  width: 30px;
+  height: 30px;
+}
+
+.layer-name {
+  font-size: 14px;
+  flex-grow: 1;
+  color: #FFF;
+}
+
+.layer-grab-icon {
+  color: #FFF;
+  width: 16px;
+  height: 16px;
+  cursor: grab;
+}
+
+.layer-grab-icon:active {
+  cursor: grabbing;
+}
+
+#general-settings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.setting-container {
+  padding: 0 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.setting-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFF;
+}
+
+.fill-color-container {
+  padding: 5px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.bg-fill-color-pos {
+  width: 50px;
+}
+
+.bg-fill-color-text {
+  width: 100px;
+  flex-grow: 1;
+}
+
+.bg-fill-color-container {
+  position: relative;
+  height: 21px;
+  width: 50px;
+  border: 1px solid #56565B;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.bg-fill-color-container input[type="color"] {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.fill-color-container svg {
+  color: #FFF;
+  cursor: pointer;
+}
+
+#add-color-button {
+  background: #1E1E29;
+  padding: 5px 0;
+  width: calc(100% - 10px);
+  margin-left: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#add-color-button svg {
+  color: #FFF;
+}
