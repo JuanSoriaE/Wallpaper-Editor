@@ -48,8 +48,8 @@ export default class Scene {
       this.elements.push(new Mountain(
         "mountain" + this.mountainCount.toString(),
         {x: 0, y: this.height / 5},
-        150, 300,
-        "#7b6de3",
+        300, 300,
+        "#252525",
         this.width,
         this.ctx,
       ));
@@ -58,9 +58,9 @@ export default class Scene {
         "sun" + this.sunCount,
         {x: 80 + 50, y: this.height - 80 - 50},
         80,
-        "#ffffff",
+        "#f9fa47",
         this.ctx,
-        300, 3, 30,
+        
       ));
     
     this.draw();
@@ -68,8 +68,9 @@ export default class Scene {
 
   public drawBackground(): void {
     const gradient: CanvasGradient = this.ctx.createLinearGradient(this.width / 2, this.height, this.width / 2, 0);
-    gradient.addColorStop(0, "#659dbb")
-    gradient.addColorStop(0.4, "#e5bbc7");
+    gradient.addColorStop(0, "#132f70")
+    gradient.addColorStop(0.3, "#b382a4");
+    gradient.addColorStop(0.8, "#ff8108");
     this.backgroundColor = gradient;
     this.ctx.fillStyle = this.backgroundColor;
     this.ctx.fillRect(0, 0, this.width, this.height);

@@ -63,13 +63,35 @@ export default class Sun extends SceneElement {
     this.ctx.arc(this.position.x, this.position.y, this.radius, 0, 2 * Math.PI);
     this.ctx.fill();
 
-    if (this.bloomSteps == 0) return;
+    if (this.bloomRadius == 0) return;
 
+    // Bloom by radial gradient
+    if (this.bloomSteps == 0) {
+      const bloomHexOpacity: string = this.bloomOpacity.toString(16).padStart(2, '0')
+      const radialGradient: CanvasGradient = this.ctx.createRadialGradient(
+        this.position.x, this.position.y, this.radius,
+        this.position.x, this.position.y, this.bloomRadius
+      );
+
+      radialGradient.addColorStop(0, this.color + bloomHexOpacity);
+      radialGradient.addColorStop(1, this.color + "00");
+      
+      this.ctx.fillStyle = radialGradient;
+      this.ctx.fillRect(
+        this.position.x - this.bloomRadius,
+        this.position.y - this.bloomRadius,
+        2 * this.bloomRadius, 2 * this.bloomRadius
+      );
+
+      return;
+    }
+
+    // Bloom by steps
     const bloomStepRadiusDelta: number = (this.bloomRadius - this.radius) / this.bloomSteps;
     const bloomStepOpacity: string = Math.floor(this.bloomOpacity / this.bloomSteps).toString(16).padStart(2, '0');
+    this.ctx.fillStyle = this.color + bloomStepOpacity;
 
     for (let i = 1; i <= this.bloomSteps; i++) {
-      this.ctx.fillStyle = this.color + bloomStepOpacity;
       this.ctx.beginPath();
       this.ctx.arc(this.position.x, this.position.y, this.radius + i * bloomStepRadiusDelta, 0, 2 * Math.PI);
       this.ctx.fill();

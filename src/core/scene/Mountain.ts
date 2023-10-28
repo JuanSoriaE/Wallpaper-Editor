@@ -33,6 +33,15 @@ export default class Mountain extends SceneElement {
     this.generatePeaks();
   }
 
+  public get getNumPeaks(): number {
+    return this.peaks.length;
+  }
+
+  
+  public get getMaxDisplacement(): number {
+    return this.maxDisplacement;
+  }
+
   public initPeaksArray(): void {
     const deltaX: number = this.width / this.peaks.length;
 

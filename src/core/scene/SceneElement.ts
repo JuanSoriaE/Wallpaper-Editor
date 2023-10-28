@@ -24,16 +24,47 @@ export default class SceneElement {
     this.height = height || 0;
   }
 
+  // Setters
+  public set setKey(key: string) {
+    this.key = key;
+  }
   
   public set setPosition(position: Vec2d) {
     this.position = position;
   }
 
-  
-  public get getPostion(): Vec2d {
-    return this.position;
+  public set setColor(color: string) {
+    this.color = color;
+  }
+
+  public set setWidth(width: number) {
+    this.width = width;
+  }
+
+  public set setHeight(height: number) {
+    this.height = height;
   }
   
+  // Getters
+  public get getKey(): string {
+    return this.key;
+  }
+  
+  public get getPosition(): Vec2d {
+    return this.position;
+  }
+
+  public get getColor(): string {
+    return this.color;
+  }
+
+  public get getWidth(): number {
+    return this.width;
+  }
+
+  public get getHeight(): number {
+    return this.height;
+  }
   
   public isInMouse(mousePosition: Vec2d): boolean {
     return !(mousePosition.x < this.position.x || mousePosition.x > this.position.x + this.width 
